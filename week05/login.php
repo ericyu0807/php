@@ -1,18 +1,15 @@
 <?php
 session_start();
 
-// If user is already logged in, redirect to form page
 if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
     header("Location: info.php");
     exit();
 }
 
-// Handle login logic
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"] ?? "";
     $password = $_POST["password"] ?? "";
 
-    // Validate credentials (new credentials)
     if ($username === "a1113344" && $password === "a1113344") {
         $_SESSION['login'] = true;
         header("Location: info.php");
